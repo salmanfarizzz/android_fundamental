@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detail.DetailUserActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/detus_layout_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/detus_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/detail"
+            app:navigationIconTint="@color/white"
+            app:title="Detail" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ProgressBar
+        android:id="@+id/detus_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/detus_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/detus_profile"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/detail_user_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detus_layout_bar"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/detus_name"
+        style="@style/TextContent.TitleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/detus_profile"
+        app:layout_constraintStart_toStartOf="@+id/detus_profile"
+        app:layout_constraintTop_toBottomOf="@+id/detus_profile"
+        tools:text="@string/name" />
+
+    <TextView
+        android:id="@+id/detus_username"
+        style="@style/TextContent.BodyMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/detus_name"
+        app:layout_constraintStart_toStartOf="@+id/detus_name"
+        app:layout_constraintTop_toBottomOf="@+id/detus_name"
+        tools:text="@string/username" />
+
+    <TextView
+        android:id="@+id/detus_numfollowing"
+        style="@style/TextContent.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/detus_numfollowers"
+        app:layout_constraintEnd_toStartOf="@+id/line1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/detus_numfollowers"
+        tools:text="@string/dummy_following" />
+
+    <TextView
+        android:id="@+id/detus_following"
+        style="@style/TextContent.BodyMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/following"
+        app:layout_constraintEnd_toEndOf="@+id/detus_numfollowing"
+        app:layout_constraintStart_toStartOf="@id/detus_numfollowing"
+        app:layout_constraintTop_toBottomOf="@+id/detus_numfollowing" />
+
+    <TextView
+        android:id="@+id/detus_numfollowers"
+        style="@style/TextContent.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/detus_username"
+        app:layout_constraintStart_toStartOf="@+id/detus_username"
+        app:layout_constraintTop_toBottomOf="@+id/detus_username"
+        tools:text="@string/dummy_followers" />
+
+    <TextView
+        android:id="@+id/detus_followers"
+        style="@style/TextContent.BodyMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/followers"
+        app:layout_constraintEnd_toEndOf="@+id/detus_numfollowers"
+        app:layout_constraintStart_toStartOf="@+id/detus_numfollowers"
+        app:layout_constraintTop_toBottomOf="@+id/detus_numfollowers" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="0.5dp"
+        android:layout_height="40dp"
+        android:background="@color/md_theme_light_tertiary"
+        app:layout_constraintBottom_toBottomOf="@id/detus_followers"
+        app:layout_constraintEnd_toStartOf="@id/detus_followers"
+        app:layout_constraintStart_toEndOf="@id/detus_following"
+        app:layout_constraintTop_toTopOf="@id/detus_numfollowers" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="0.5dp"
+        android:layout_height="40dp"
+        android:background="@color/md_theme_light_tertiary"
+        app:layout_constraintBottom_toBottomOf="@id/detus_followers"
+        app:layout_constraintEnd_toStartOf="@id/tv_detus_repos"
+        app:layout_constraintStart_toEndOf="@id/detus_followers"
+        app:layout_constraintTop_toBottomOf="@+id/detus_username" />
+
+    <TextView
+        android:id="@+id/detus_numrepos"
+        style="@style/TextContent.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/detus_numfollowers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/line2"
+        app:layout_constraintTop_toTopOf="@id/detus_numfollowers"
+        tools:text="@string/dummy_followers" />
+
+    <TextView
+        android:id="@+id/tv_detus_repos"
+        style="@style/TextContent.BodyMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/repos"
+        app:layout_constraintEnd_toEndOf="@+id/detus_numrepos"
+        app:layout_constraintStart_toStartOf="@+id/detus_numrepos"
+        app:layout_constraintTop_toBottomOf="@+id/detus_numrepos" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_gL"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <include
+        android:id="@+id/detus_tablayout"
+        layout="@layout/layout_tab"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/detus_btnfavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/favorite_user"
+        android:foregroundGravity="bottom"
+        android:src="@drawable/border_favorite_red"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="365dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
